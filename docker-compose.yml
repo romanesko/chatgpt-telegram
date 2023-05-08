@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  chat-gpt-bot:
+    container_name: chat-gpt-bot
+    image: chat-gpt-bot
+    build: .
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - OPENAI_TOKEN=${OPENAI_TOKEN}
+      - AUTH_PASSWORD=${AUTH_PASSWORD}
+    restart: unless-stopped
+    volumes:
+      - ./data:/tmp/data
