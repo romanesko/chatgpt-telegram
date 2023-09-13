@@ -20,6 +20,7 @@ func requestChatGpt(text string) string {
 	var response GptResponse
 	err := requests.post("https://api.openai.com/v1/chat/completions", &params, &response)
 	if err != nil {
+		log.Println(err)
 		return err.Error()
 	}
 
